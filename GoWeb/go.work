@@ -1,0 +1,9 @@
+go 1.21.5
+
+use (
+	./lesson1-API_JSON_Postman
+	./lesson2-Context_GET
+	./lesson3-POST
+	./lesson4-API_Structure/04-Estructura-API/code/after
+	./structured-API/code
+)

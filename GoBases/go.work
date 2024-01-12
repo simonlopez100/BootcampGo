@@ -1,0 +1,14 @@
+go 1.21.5
+
+use (
+	./lesson1-types
+	./lesson2-control_structures
+	./lesson3_and_4-functions_testing
+	./lesson5-methods_structs
+	./lesson6-pointers_composition_interfaces
+	./lesson7-errors
+	./lesson8-panic
+	./lesson9-packages
+	./lesson10-challenge/desafio-go-bases
+
+)
