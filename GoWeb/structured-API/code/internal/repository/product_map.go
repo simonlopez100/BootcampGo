@@ -39,3 +39,35 @@ func (pm *ProductMap) Save(product *internal.Product) (err error) {
 
 	return
 }
+
+func (pm *ProductMap) GetById(id int) (product internal.Product, err error) {
+	product, ok := (*pm).db[id]
+	if !ok {
+		err = internal.ErrProductNotFound
+	}
+	return
+}
+
+func (pm *ProductMap) Update(product *internal.Product) (err error) {
+	// Validate existance of product
+	_, ok := (*pm).db[(*product).Id]
+	if !ok {
+		err = internal.ErrProductNotFound
+		return
+	}
+
+	// Validate product (consistency)
+	pm.db[(*product).Id] = *product
+	return
+}
+
+func (pm *ProductMap) Delete(id int) (err error) {
+	_, ok := (*pm).db[id]
+	if !ok {
+		err = internal.ErrProductNotFound
+		return
+	}
+
+	delete((*pm).db, id)
+	return
+}

@@ -43,7 +43,10 @@ func (s *ServerChi) Run() (err error) {
 	rt := chi.NewRouter()
 
 	// endpoints
+	rt.Get("/products/{id}", hd.GetByID())
 	rt.Post("/products", hd.Create())
+	rt.Put("/products/{id}", hd.Update())
+	rt.Patch("/products/{id}", hd.UpdatePartial())
 
 	// run server
 	return http.ListenAndServe(s.adress, rt)
